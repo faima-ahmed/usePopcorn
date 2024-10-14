@@ -123,7 +123,7 @@ return(
         {isOpen1 ? "–" : "+"}
       </button>
       {isOpen1 && (
-       
+       <MovieList/>
       )}
     </div>
 )
