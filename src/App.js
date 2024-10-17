@@ -168,7 +168,7 @@ function WatchedBox(){
       </button>
       {isOpen2 && (
         <>
-        <WatchedSummury watched={watched}/>
+        <WatchedBox watched={watched}/>
 
           <ul className="list">
             {watched.map((movie) => (
@@ -198,7 +198,7 @@ function WatchedBox(){
   )
 }
 
-function WatchedSummury(){
+function WatchedSummury({watched}){
 
   const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
   const avgUserRating = average(watched.map((movie) => movie.userRating));
