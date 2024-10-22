@@ -56,18 +56,18 @@ export default function App() {
 
   return (
     <>
-    <NavBar/>
+    <NavBar movies={movies}/>
     <Main movies={movies}/>
     </>
   );
 }
 
-function NavBar(){
+function NavBar({movies}){
   return(
     <nav className="nav-bar">
         <Logo/>
         <Search/>
-        <NumResults/>
+        <NumResults movies={movies}/>
      </nav>
   ) 
 
@@ -95,10 +95,10 @@ function Search(){
   )
 }
 
-function NumResults(){
+function NumResults({movies}){
   return(
     <p className="num-results">
-          Found <strong>X</strong> results
+          Found <strong>{movies.length}</strong> results
         </p>
   )
 }
@@ -112,7 +112,7 @@ function Main({movies}){
   )
 }
 
-function ListBox(){
+function ListBox({movies}){
   const [isOpen1, setIsOpen1] = useState(true);
 return(
 <div className="box">
@@ -123,13 +123,13 @@ return(
         {isOpen1 ? "–" : "+"}
       </button>
       {isOpen1 && (
-       <MovieList/>
+       <MovieList movies={movies}/>
       )}
     </div>
 )
 }
 
-function MovieList(){
+function MovieList({movies}){
   return(
     <ul className="list">
     {movies?.map((movie) => (
